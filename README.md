@@ -44,13 +44,18 @@ PokeTrade also includes a search engine, where you check which trainers have the
 | `post` | `/auth/login` | If user has logged in correctly, redirects to /profile. Else, redirects to /login.  |
 | `post` | `/auth/logout` | Redirects to /. |
 | `get` | `/trades` | Renders the trade list page (protected). |
-| `get` | `/trades/add` | Renders the add pokemon form (protected). |
-| `post` | `/trades/add` | Redirects to trade list page (protected). |
-| `post` | `/trades/delete` | Redirects to trade list page (protected). |
+| `post` | `/trades/:id_pkmn/my_pokemon/delete` | Redirects to trade list page (protected). |
+| `post` | `/trades/:id_pkmn/wish_list/delete` | Redirects to trade list page (protected). |
 | `get` | `/pokesearch?q=` | Renders the search engine page (protected).|
 | `get` | `/profile` | Renders the profile page (protected). |
 | `get` | `/profile/edit` | Renders the edit profile page (protected). |
 | `post` | `/profile/edit` | Redirects to profile page (protected). |
+
+### Pending
+| `get` | `/trades/add/my_pokemon` | Renders the add pokemon form to *My Pokemon* list(protected). |
+| `get` | `/trades/add/wish_list` | Renders the add pokemon form to *Wish List*(protected). |
+| `post` | `/trades/add/my_pokemon` | Welcome to the wonderful world of APIs |
+| `post` | `/trades/add/my_pokemon` | Welcome to the wonderful world of APIs |
 
 ### Backlog
 | Method | Route | Description |
