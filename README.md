@@ -25,112 +25,39 @@ PokeTrade also includes a search engine, where you check which trainers have the
 
 ## Backlog
 - Styles & animations. 
-- Trainer's profile page. 
 - Add upload profile picture option. 
 - Add reset password option.
-- Notifications.
+- Extra notifications.
 - Add events. 
-- Add pokemon details. 
-- Get the PokeData from the PokeAPI and seed the database.
+- Add Pokemon details. 
 - Communication between trainers. 
 
-## ROUTES:
+## Routes
+
 ### MVP
-
-| method | route | description |
+| Method | Route | Description |
 |--------|-------|-------------|
-| `get` | `/` | render the homepage |
-
-
-#### /
-- GET /
-
-Renders the homepage. 
-#### /auth
-- GET /auth/signup
-
-Renders the signup form.
-    
-If user has logged in, redirects to /profile. 
-
-- POST /auth/signup
-
-Redirects to /profile if user has signed up correctly. 
-
-Else, redirects to /signup. 
-
-- GET /auth/login
-
-Renders the login form.
-
-If user has logged in, redirects to /profile. 
-
-- POST /auth/login
-
-If user has logged in correctly, redirects to /profile.
-
-Else, redirects to /login. 
-
-- POST /auth/logout
-
-Redirects to /.
-
-#### /trades 
-- GET /trades
-
-Renders the trade list page (protected).
-
-- GET /trades/add
-
-Renders the add pokemon form (protected).
-
-- POST /trades/add
-
-Redirects to trade list page (protected).
-
-- GET /trades/edit
-
-Renders the edit pokemon form (protected).
-
-- POST /trades/edit
-
-Redirects to trade list page (protected).
-
-- POST /trades/delete
-
-Redirects to trade list page (protected).
-
-- GET /pokesearch
-
-Renders the search engine page (protected).
-
-- POST /pokesearch
-
-Redirects to search results page (protected).
-
-- GET /pokesearch/results
-
-Renders the search results page (protected).
+| `get` | `/` | Renders the homepage. |
+| `get` | `/auth/signup` | Renders the signup form. If user has logged in, redirects to /profile.  |
+| `post` | `/auth/signup` | Redirects to /profile if user has signed up correctly. Else, redirects to /signup.   |
+| `get` | `/auth/login` | Renders the login form. If user has logged in, redirects to /profile. |
+| `post` | `/auth/login` | If user has logged in correctly, redirects to /profile. Else, redirects to /login.  |
+| `post` | `/auth/logout` | Redirects to /. |
+| `get` | `/trades` | Renders the trade list page (protected). |
+| `get` | `/trades/add` | Renders the add pokemon form (protected). |
+| `post` | `/trades/add` | Redirects to trade list page (protected). |
+| `post` | `/trades/delete` | Redirects to trade list page (protected). |
+| `get` | `/pokesearch` | Renders the search engine page (protected).|
+| `post` | `/pokesearch` | Redirects to search results page (protected).|
+| `get` | `/pokesearch/results` | Renders the search results page (protected).|
+| `get` | `/profile` | Renders the profile page (protected). |
+| `get` | `/profile/edit` | Renders the edit profile page (protected). |
+| `post` | `/profile/edit` | Redirects to profile page (protected).(protected). |
 
 ### Backlog
-### /profile
-- GET /profile
-
-Renders the profile page (protected).
-
-- GET /profile/edit
-
-Renders the edit profile page (protected).
-
-- POST /profile/edit
-
-Redirects to profile page (protected).
-
-
-### /pokemon/:pokemon
-- GET /pokemon/:pokemon
-
-Renders the pokemon details page (protected).
+| Method | Route | Description |
+|--------|-------|-------------|
+| `get` | `/pokemon/:pokemon` | Renders the pokemon details page (protected).|
 
 ## Models
 
@@ -167,7 +94,7 @@ game: String // Enum: Gold, Silver, Yellow, ...
 
 ### Trello
 
-[Trello link](Pending)
+[Trello link](https://trello.com/b/2F0nTrm1/poketrade)
 
 ### Git
 
@@ -179,4 +106,4 @@ game: String // Enum: Gold, Silver, Yellow, ...
 ### Slides
 
 
-[Slides Link](Pending)
+[Slides Link](https://slides.com/evapanizo/poke-trade)
