@@ -57,7 +57,7 @@ PokeTrade also includes a search engine, where you check which trainers have the
 | `get` | `/trades/add/my_pokemon` | Renders the add pokemon form to *My Pokemon* list(protected). |
 | `get` | `/trades/add/wish_list` | Renders the add pokemon form to *Wish List*(protected). |
 | `post` | `/trades/add/my_pokemon` | Welcome to the wonderful world of APIs |
-| `post` | `/trades/add/my_pokemon` | Welcome to the wonderful world of APIs |
+| `post` | `/trades/add/wish_list` | Welcome to the wonderful world of APIs |
 
 ### Backlog
 | Method | Route | Description |
