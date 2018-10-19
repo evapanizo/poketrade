@@ -47,12 +47,10 @@ PokeTrade also includes a search engine, where you check which trainers have the
 | `get` | `/trades/add` | Renders the add pokemon form (protected). |
 | `post` | `/trades/add` | Redirects to trade list page (protected). |
 | `post` | `/trades/delete` | Redirects to trade list page (protected). |
-| `get` | `/pokesearch` | Renders the search engine page (protected).|
-| `post` | `/pokesearch` | Redirects to search results page (protected).|
-| `get` | `/pokesearch/results` | Renders the search results page (protected).|
+| `get` | `/pokesearch?q=` | Renders the search engine page (protected).|
 | `get` | `/profile` | Renders the profile page (protected). |
 | `get` | `/profile/edit` | Renders the edit profile page (protected). |
-| `post` | `/profile/edit` | Redirects to profile page (protected).(protected). |
+| `post` | `/profile/edit` | Redirects to profile page (protected). |
 
 ### Backlog
 | Method | Route | Description |
