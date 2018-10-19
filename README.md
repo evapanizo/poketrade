@@ -36,6 +36,12 @@ PokeTrade also includes a search engine, where you check which trainers have the
 
 ## ROUTES:
 ### MVP
+
+| method | route | description |
+|--------|-------|-------------|
+| `get` | `/` | render the homepage |
+
+
 #### /
 - GET /
 
