@@ -7,7 +7,7 @@ const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
 
 // GET Profile View
-router.get('/', middlewares.requireUser, (req, res, next) => {
+router.get('/', middlewares.isLogged, (req, res, next) => {
   const userId = req.session.currentUser._id;
   // Render user's profile
   Trainer.findById(userId)
@@ -26,7 +26,7 @@ router.get('/', middlewares.requireUser, (req, res, next) => {
 });
 
 // POST Edit form
-router.post('/', middlewares.requireUser, (req, res, next) => {
+router.post('/', middlewares.isLogged, (req, res, next) => {
   const userId = req.session.currentUser._id;
   const trainer = req.body;
   Trainer.findByIdAndUpdate(userId, trainer)
@@ -37,7 +37,7 @@ router.post('/', middlewares.requireUser, (req, res, next) => {
 });
 
 // GET Edit Profile View
-router.get('/edit', middlewares.requireUser, (req, res, next) => {
+router.get('/edit', middlewares.isLogged, (req, res, next) => {
   const userId = req.session.currentUser._id;
   // Render edit form
   Trainer.findById(userId)
