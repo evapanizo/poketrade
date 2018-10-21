@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //no tengo el model de users
 const User = require('../models/users');
 //comprobar que los campos de user y pass no estan vacios
@@ -43,20 +42,3 @@ function isCreated (req, res, next) {
   isAnon,
   isCreated
 } 
-=======
-'use strict';
-
-function requireUser (req, res, next) {
-  const user = req.session.currentUser;
-
-  if (!user) {
-    return res.redirect('/');
-  } else {
-    next();
-  }
-}
-
-module.exports = {
-  requireUser
-};
->>>>>>> 62378e9e78ad8eb56f5c60727384ddffa3c68308
