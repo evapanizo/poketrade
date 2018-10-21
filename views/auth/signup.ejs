@@ -1,26 +1,19 @@
 <h1>sign up</h1>
 <form method="POST" action="/auth/signup">
-
   <div class="field" >
     <h3>you need a trainer-name in this poke-world</h3>
-    <label>username</label>
+    <label for = "username">username</label>
     <input type="text" name="username"/>
   </div>
-
   <div class="field" >
     <h3>and a pokepass</h3>
-    <label>pokepass</label>
+    <label for = "password">pokepass</label>
     <input type="password" name="password"/>
   </div>
 
   <div class="field submit">
-    <button type="submit">sign up</button>
+    <input type="submit" value ="signup">
   </div>
-
-  <div class="validation"><%= error %></div>
 </form>
 
-<img src="/public/images/pokemons.png" alt="awesome picture of pokemons">
-
-<!--se deberia usar el bonus del ejercicio de auth de clase para lo de la fuerza del pass
-https://www.jquerycards.com/forms/inputs/strength-js/-->
+<img src="/images/pokemons.png" alt="awesome picture of pokemons">

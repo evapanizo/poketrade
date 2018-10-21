@@ -1,44 +1,53 @@
-//no tengo el model de users
-const User = require('../models/users');
-//comprobar que los campos de user y pass no estan vacios
+// Packages
+const User = require('../models/trainer');
+
+// Are user or password empty?
 function emptyFields (req, res, next) {
   const { username, password } = req.body;
   if (!username || !password) {
-    res.render('users/signup', { error: 'The fields should not be empty' }) 
+    res.redirect(`/auth${req.path}`);
   } else {
     next();
-  } 
+  }
 }
-//comprobar que el user esta logeado
+
+// Is user logged?
 function isLogged (req, res, next) {
   const user = req.session.currentUser;
   if (!user) {
-    res.redirect('/users/login');
-  } else { next(); }
-} 
+    res.redirect('/auth/login');
+  } else {
+    next();
+  }
+}
 
-function isAnon (req, res, next) { 
+// Is user logged and trying to acces signup or login routes?
+function isAnon (req, res, next) {
   const user = req.session.currentUser;
   if (user) {
-    res.redirect('/users/profile');
-  } else { next(); } 
+    res.redirect('/profile');
+  } else {
+    next();
+  }
 }
-//comprobar que el user no esta usado ya
+
+// Is user already in the database?
 function isCreated (req, res, next) {
   const { username } = req.body;
   User.findOne({ username })
     .then((user) => {
       if (user) {
-        res.render('users/signup',  { error: 'The user already exists, choose another name' }),  
-    } else {
-      next();
-    }
-  })
-  .catch(next)
+        res.render('auth/signup');
+      } else {
+        next();
+      }
+    })
+    .catch(next);
 }
- module.exports= {
+
+module.exports = {
   emptyFields,
   isLogged,
   isAnon,
   isCreated
-} 
+};
