@@ -1,0 +1,37 @@
+<h1>Edit your profile</h1>
+<form action="/profile" method="post">
+  <div>
+    <label for="username">Username</label>
+    <input type="text" name="username" value="<%= trainer.username %>">
+  </div>
+  <div>
+    <label for="avatar">Avatar URL</label>
+    <input type="text" name="avatar" value="<%= trainer.avatar %>">
+  </div>
+  <div>
+    <label for="telegram">Telegram</label>
+    <input type="text" name="telegram" value="<%= trainer.telegram %>">
+  </div>
+  <div>
+    <label for="gender">Gender</label>
+    <input type="radio" id="male" name="gender" value="/images/male-logo.png" checked/>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="/images/female-logo.png"/>
+    <label for="female">Female</label>
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input type="text" name="location" value="<%= trainer.location %>">
+  </div>
+  <div>
+    <label for="description">Description</label>
+    <input type="text" name="description" value="<%= trainer.description %>">
+  </div>
+  <div>
+    <label for="age">Age</label>
+    <input type="number" min="0" max="100" step="1" name="age" value="<%= trainer.age %>">
+  </div>
+  <div>
+    <input type="submit" value="Save">
+  </div>
+</form>

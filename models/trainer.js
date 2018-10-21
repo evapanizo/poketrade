@@ -22,6 +22,9 @@ const trainerSchema = new Schema({
   gender: {
     type: String
   },
+  age: {
+    type: Number
+  },
   description: {
     type: String
   },
