@@ -9,7 +9,7 @@ const middlewares = require('../middlewares/middlewares');
 // GET
 router.get('/', middlewares.isLogged, function (req, res, next) {
   const pokemonName = req.query.q;
-  const userId = req.req.session.currentUser._id;
+  const userId = req.session.currentUser._id;
   const searchResults = [];
   Trainer.find({ _id: { $ne: userId } })
     .then(trainers => {

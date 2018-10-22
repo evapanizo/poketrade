@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
+const helpers = require('../helpers/helpers');
 
 // GET Profile View
 router.get('/', middlewares.isLogged, (req, res, next) => {
