@@ -7,6 +7,7 @@ const middlewares = require('../middlewares/middlewares');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const Trainer = require('../models/trainer');
+const sms = require('../helpers/messages');
 
 // get sign up view
 router.get('/signup', middlewares.isAnon, function (req, res, next) {
@@ -37,13 +38,15 @@ router.post('/login', middlewares.isAnon, middlewares.emptyFields, function (req
   Trainer.findOne({ username })
     .then(user => {
       if (!user) {
-        return res.redirect('/login');
+        req.flash('error', sms.messages.noUserMessage);
+        return res.redirect('/auth/login');
       }
       if (bcrypt.compareSync(password, user.password)) {
         req.session.currentUser = user;
         return res.redirect('/profile');
       } else {
-        return res.redirect('/login');
+        req.flash('error', sms.messages.incorrectPass);
+        return res.redirect('/auth/login');
       }
     });
 });

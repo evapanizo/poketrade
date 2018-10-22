@@ -39,7 +39,8 @@ function isCreated (req, res, next) {
   User.findOne({ username })
     .then((user) => {
       if (user) {
-        res.render('auth/signup');
+        req.flash('error', sms.messages.userCreated);
+        res.redirect('auth/signup');
       } else {
         next();
       }
