@@ -3,7 +3,7 @@
 // Packages
 const express = require('express');
 const router = express.Router();
-const Trainer = require('../models/trainer.js');
+const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
 
 // GET
