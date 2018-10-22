@@ -5,20 +5,22 @@ const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
+const helpers = require('../helpers/helpers');
+const vars = require('../helpers/constants');
 
 // GET Profile View
 router.get('/', middlewares.isLogged, (req, res, next) => {
-  const userId = req.session.currentUser._id;
+  const userId = res.locals.currentUser._id;
   // Render user's profile
   Trainer.findById(userId)
     .then(trainer => {
       // Assign default gender image
       if (!trainer.gender) {
-        trainer.gender = '/images/male-female.png';
+        trainer.gender = helpers.getPathImages(vars.constants.defaultGenderImage);
       }
       // Assign default avatar
       if (!trainer.avatar) {
-        trainer.avatar = '/images/default-avatar.png';
+        trainer.avatar = helpers.getPathImages(vars.constants.defaultAvatar);
       }
       res.render('profile/profile', { 'trainer': trainer });
     })
@@ -27,7 +29,7 @@ router.get('/', middlewares.isLogged, (req, res, next) => {
 
 // POST Edit form
 router.post('/', middlewares.isLogged, (req, res, next) => {
-  const userId = req.session.currentUser._id;
+  const userId = res.locals.currentUser._id;
   const trainer = req.body;
   Trainer.findByIdAndUpdate(userId, trainer)
     .then(() => {
@@ -38,7 +40,7 @@ router.post('/', middlewares.isLogged, (req, res, next) => {
 
 // GET Edit Profile View
 router.get('/edit', middlewares.isLogged, (req, res, next) => {
-  const userId = req.session.currentUser._id;
+  const userId = res.locals.currentUser._id;
   // Render edit form
   Trainer.findById(userId)
     .then(trainer => {
