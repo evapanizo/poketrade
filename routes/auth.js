@@ -41,18 +41,23 @@ router.post('/login', middlewares.isAnon, middlewares.emptyFields, function (req
       }
       if (bcrypt.compareSync(password, user.password)) {
         req.session.currentUser = user;
-        res.redirect('/profile');
+        return res.redirect('/profile');
       } else {
-        res.redirect('/login');
+        return res.redirect('/login');
       }
     });
 });
 
 // post logout
-
+// la asincronia se maneja con promises y callbacks como en este ejemplo con el condicional
 router.post('/logout', middlewares.isLogged, function (req, res, next) {
-  req.session.destroy((err) => next(err));
-  res.redirect('/');
+  req.session.destroy((err) => {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/');
+    }
+  });
 });
 
 // Exports

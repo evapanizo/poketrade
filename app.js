@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const middlewares = require('./middlewares/middlewares');
 
 // Routers
 const indexRouter = require('./routes/index');
@@ -49,14 +50,12 @@ app.use(session({
 }));
 
 // Makes the currentUser available in every page
-app.use((req, res, next) => {
-  app.locals.currentUser = req.session.currentUser;
-  res.locals.currentUser = req.session.currentUser;
-  next();
-});
+app.use(middlewares.setCurrentUser);
 
 // Flash
 app.use(flash());
+
+app.use(middlewares.notifications);
 
 // View engine setup
 app.use(expressLayouts);
