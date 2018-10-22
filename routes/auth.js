@@ -8,6 +8,8 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const Trainer = require('../models/trainer');
 const sms = require('../helpers/messages');
+const vars = require('../helpers/constants');
+const helpers = require('../helpers/helpers');
 
 // get sign up view
 router.get('/signup', middlewares.isAnon, function (req, res, next) {
@@ -19,7 +21,17 @@ router.post('/signup', middlewares.isAnon, middlewares.emptyFields, middlewares.
   const { username, password } = req.body;
   const salt = bcrypt.genSaltSync(saltRounds);
   const hashedPassword = bcrypt.hashSync(password, salt);
-  Trainer.create({ 'username': username, 'password': hashedPassword })
+  const trainer = {
+    'username': username,
+    'password': hashedPassword,
+    'avatar': helpers.getPathImages(vars.constants.defaultAvatar),
+    'gender': helpers.getPathImages(vars.constants.defaultGenderImage),
+    'age': 0,
+    'location': 'N/A',
+    'description': 'N/A',
+    'telegram': 'N/A'
+  };
+  Trainer.create(trainer)
     .then(newUser => {
       req.session.currentUser = newUser;
       res.redirect('/profile');

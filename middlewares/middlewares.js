@@ -40,7 +40,7 @@ function isCreated (req, res, next) {
     .then((user) => {
       if (user) {
         req.flash('error', sms.messages.userCreated);
-        res.redirect('auth/signup');
+        res.redirect('/auth/signup');
       } else {
         next();
       }
