@@ -3,7 +3,7 @@
 </header>
 <section>
   <h2>My Pokemon</h2>
-  <a href="/trades/add/my-pokemon">Add</a>
+  <a href="/trades/add/my_pokemon">Add</a>
   <ul>
     <% trainer.my_pokemon.forEach( (pokemon, index) => { %>
       <div>
@@ -18,12 +18,12 @@
 </section>
 <section>
 <h2>Wish List</h2>
-  <a href="/trades/add/wish-list">Add</a>
+  <a href="/trades/add/wish_list">Add</a>
   <ul>
     <% trainer.wish_list.forEach( (pokemon, index) => { %>
     <div>
       <li><%= pokemon.name %></li>
-      <form method="POST" action="/trades/<%= index %>/wish-list/delete">
+      <form method="POST" action="/trades/<%= index %>/wish_list/delete">
         <input type="submit" value ="delete">
       </form>
       <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
