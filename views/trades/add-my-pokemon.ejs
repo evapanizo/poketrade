@@ -1,10 +1,12 @@
-<h1>¿Which Pokemon do you have?</h1>
-<form action="/trades/add/my-pokemon" method="GET">
-<div>
-<label for="GET-pokemon"></label>
-<input id="GET-pokemon" type="text" name="q">
-<input type="submit" value="Search">
-</div>
+<section id="search-pokemon">
+  <h1>¿Which Pokemon do you have?</h1>
+  <input id="pokemon" type="text" name="pokemon">
+  <button>Search</button>
+  <p id="error-message"></p>
+</section>
+<form method="POST" action="" id="checkbox-form">
+<input type="submit" id="hidden-btn" class="hidden" value ="Add all">
 </form>
-<% include ../partials/notifications %>
+<script src="/javascripts/axios.js"></script>
+<script src="/javascripts/main.js"></script>
 <% include ../partials/navbar.ejs %>

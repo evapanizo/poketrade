@@ -19,6 +19,7 @@ const profileRouter = require('./routes/profile');
 const authRouter = require('./routes/auth');
 const tradesRouter = require('./routes/trades');
 const searchRouter = require('./routes/search');
+const apiRouter = require('./routes/api.js');
 
 // App
 const app = express();
@@ -76,6 +77,7 @@ app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/trades', tradesRouter);
 app.use('/search', searchRouter);
+app.use('/api/trades', apiRouter);
 
 // 404 Error Handler
 app.use((req, res, next) => {

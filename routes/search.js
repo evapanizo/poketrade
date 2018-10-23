@@ -8,10 +8,14 @@ const middlewares = require('../middlewares/middlewares');
 
 // GET Search view
 router.get('/', middlewares.isLogged, function (req, res, next) {
+  // Are there query parameters?
   const pokemonName = req.query.q;
+  if (!pokemonName) {
+    return res.render('search/search');
+  }
+  // If there are..
   const userId = res.locals.currentUser._id;
   const searchResults = [];
-
   Trainer.find({ _id: { $ne: userId } })
     .then(trainers => {
       trainers.forEach(trainer => {
@@ -22,7 +26,6 @@ router.get('/', middlewares.isLogged, function (req, res, next) {
           searchResults.push(found);
         }
       });
-      res.render('search/search', { trainers: searchResults });
     })
     .catch(next);
 });
