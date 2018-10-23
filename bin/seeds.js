@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 const pokedex = new Pokedex();
 
 // Database connection
-mongoose.connect('mongodb://localhost/pokedex', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
