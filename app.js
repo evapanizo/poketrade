@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+require('dotenv').config();
 
 // Routers
 const indexRouter = require('./routes/index');
@@ -22,7 +23,7 @@ const searchRouter = require('./routes/search');
 const app = express();
 
 // Database connection
-mongoose.connect('mongodb://localhost/pokedex', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
