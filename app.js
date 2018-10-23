@@ -10,7 +10,11 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+<<<<<<< HEAD
 require('dotenv').config();
+=======
+const middlewares = require('./middlewares/middlewares');
+>>>>>>> 6bc495edecbd7a215c58b67e053be583147b4e8a
 
 // Routers
 const indexRouter = require('./routes/index');
@@ -50,14 +54,12 @@ app.use(session({
 }));
 
 // Makes the currentUser available in every page
-app.use((req, res, next) => {
-  app.locals.currentUser = req.session.currentUser;
-  res.locals.currentUser = req.session.currentUser;
-  next();
-});
+app.use(middlewares.setCurrentUser);
 
 // Flash
 app.use(flash());
+
+app.use(middlewares.notifications);
 
 // View engine setup
 app.use(expressLayouts);

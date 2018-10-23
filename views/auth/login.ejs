@@ -1,0 +1,21 @@
+<h1>log in</h1>
+<form method="POST" action="/auth/login">
+
+  <div class="field" >
+    <h3>pokemons are waiting for you,</h3>
+    <label for = "username"></label>
+    <input type="text" name="username"/>
+  </div>
+
+  <div class="field" >
+    <h3>and your pokepass</h3>
+    <label for = "pokepass"></label>
+    <input type="password" name="password"/>
+  </div>
+
+  <div class="field submit">
+    <input type="submit" value ="login">
+  </div>
+</form>
+ 
+<% include ../partials/notifications %>
