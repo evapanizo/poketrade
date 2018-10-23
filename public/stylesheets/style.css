@@ -50,3 +50,10 @@ p {
   font-size: 1.2em;
   padding-top: 10%;
 }
+
+/* ---- HOMEPAGE ---- */
+.home {
+  background-color: firebrick;
+  height: 100vh;
+  width: 100vw;
+}
