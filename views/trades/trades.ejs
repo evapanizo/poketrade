@@ -1,23 +1,36 @@
-<h1>My trades</h1>
-<h2>My Pokemon</h2>
-<a href="/trades/add/my-pokemon">Add</a>
-<ul>
-<% console.log(trainer.my_pokemon) %>
-  <% trainer.my_pokemon.forEach( pokemon => { %>
-    <li><%= pokemon.name %></li>
-    <form method="POST" action="/trades/<%= pokemon._id %>/my_pokemon/delete">
-      <input type="submit" value ="delete">
-    </form>
-  <% }) %>
-</ul>
+<header>
+  <h1>My trades</h1>
+</header>
+<section>
+  <h2>My Pokemon</h2>
+  <a href="/trades/add/my-pokemon">Add</a>
+  <ul>
+    <% trainer.my_pokemon.forEach( (pokemon, index) => { %>
+      <div>
+        <li><%= pokemon.name %></li>
+        <form method="POST" action="/trades/<%= index %>/my_pokemon/delete">
+          <input type="submit" value ="delete">
+        </form>
+        <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
+      </div>
+    <% }) %>
+  </ul>
+</section>
+<section>
 <h2>Wish List</h2>
-<a href="/trades/add/wish-list">Add</a>
-<ul>
-  <% trainer.wish_list.forEach( pokemon => { %>
-    <li><%= pokemon.name %></li>
-    <form method="POST" action="/trades/<%= pokemon._id %>/wish_list/delete">
-      <input type="submit" value ="delete">
-    </form>
-  <% }) %>
-</ul>
-<% include ../partials/navbar.ejs %>
+  <a href="/trades/add/wish-list">Add</a>
+  <ul>
+    <% trainer.wish_list.forEach( (pokemon, index) => { %>
+    <div>
+      <li><%= pokemon.name %></li>
+      <form method="POST" action="/trades/<%= index %>/wish-list/delete">
+        <input type="submit" value ="delete">
+      </form>
+      <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
+    </div>
+    <% }) %>
+  </ul>
+</section>
+<footer>
+  <% include ../partials/navbar.ejs %>
+</footer>

@@ -106,7 +106,7 @@ game: String // Enum: Gold, Silver, Yellow, ...
 
 [Repository Link](https://github.com/evapanizo/poketrade)
 
-[Deploy Link](Pending)
+[Deploy Link](https://poketradeih.herokuapp.com/)
 
 ### Slides
 
