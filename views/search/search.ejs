@@ -7,13 +7,4 @@
 <input id="GET-pokemon" type="text" name="q">
 <input type="submit" value="Search">
 </div>
-<% trainers.forEach(trainer => { %>
-  <article>
-    <h2><%= trainer.name %></h2>
-    <p>Contact me on Telegram: <%= trainer.telegram %></p>
-  </article>
-<% }) %>
-</form>
-
-
 <% include ../partials/navbar.ejs %>

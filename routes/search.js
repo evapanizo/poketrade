@@ -13,21 +13,22 @@ router.get('/', middlewares.isLogged, function (req, res, next) {
   if (!pokemonName) {
     return res.render('search/search');
   }
-  // If there are..
-  const userId = res.locals.currentUser._id;
-  const searchResults = [];
-  Trainer.find({ _id: { $ne: userId } })
-    .then(trainers => {
-      trainers.forEach(trainer => {
-        const found = trainer.my_pokemon.find(pokemon => {
-          return pokemon.name === pokemonName;
-        });
-        if (found) {
-          searchResults.push(found);
-        }
-      });
-    })
-    .catch(next);
+  res.render('search/search');
+  // // If there are..
+  // const userId = res.locals.currentUser._id;
+  // const searchResults = [];
+  // Trainer.find({ _id: { $ne: userId } })
+  //   .then(trainers => {
+  //     trainers.forEach(trainer => {
+  //       const found = trainer.my_pokemon.find(pokemon => {
+  //         return pokemon.name === pokemonName;
+  //       });
+  //       if (found) {
+  //         searchResults.push(found);
+  //       }
+  //     });
+  //   })
+  //   .catch(next);
 });
 
 // Exports
