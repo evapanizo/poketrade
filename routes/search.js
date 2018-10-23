@@ -6,7 +6,7 @@ const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
 
-// GET
+// GET Search view
 router.get('/', middlewares.isLogged, function (req, res, next) {
   const pokemonName = req.query.q;
   const userId = res.locals.currentUser._id;
