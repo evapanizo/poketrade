@@ -1,0 +1,36 @@
+<header>
+  <h1>My trades</h1>
+</header>
+<section>
+  <h2>My Pokemon</h2>
+  <a href="/trades/add/my_pokemon">Add</a>
+  <ul>
+    <% trainer.my_pokemon.forEach( (pokemon, index) => { %>
+      <div>
+        <li><%= pokemon.name %></li>
+        <form method="POST" action="/trades/<%= index %>/my_pokemon/delete">
+          <input type="submit" value ="delete">
+        </form>
+        <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
+      </div>
+    <% }) %>
+  </ul>
+</section>
+<section>
+<h2>Wish List</h2>
+  <a href="/trades/add/wish_list">Add</a>
+  <ul>
+    <% trainer.wish_list.forEach( (pokemon, index) => { %>
+    <div>
+      <li><%= pokemon.name %></li>
+      <form method="POST" action="/trades/<%= index %>/wish_list/delete">
+        <input type="submit" value ="delete">
+      </form>
+      <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
+    </div>
+    <% }) %>
+  </ul>
+</section>
+<footer>
+  <% include ../partials/navbar.ejs %>
+</footer>

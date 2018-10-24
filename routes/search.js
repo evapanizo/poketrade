@@ -5,24 +5,33 @@ const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
+const sms = require('../helpers/messages');
 
-// GET
+// GET Search view
 router.get('/', middlewares.isLogged, function (req, res, next) {
-  const pokemonName = req.query.q;
+  // Are there query parameters?
+  const pokemonName = req.query.pokemon;
+  if (!pokemonName) {
+    return res.render('search/search');
+  }
+  // If there are..
   const userId = res.locals.currentUser._id;
-  const searchResults = [];
-
-  Trainer.find({ _id: { $ne: userId } })
+  Trainer.find({ '_id': { $ne: userId } })
+    .populate('my_pokemon')
     .then(trainers => {
-      trainers.forEach(trainer => {
-        const found = trainer.my_pokemon.find(pokemon => {
-          return pokemon.name === pokemonName;
+      // Find which trainers have the pokemon
+      const searchResults = trainers.filter(trainer => {
+        const isMyPokemon = trainer.my_pokemon.some((elem) => {
+          return elem.name === pokemonName;
         });
-        if (found) {
-          searchResults.push(found);
-        }
+        if (isMyPokemon) { return trainer; }
       });
-      res.render('search/search', { trainers: searchResults });
+      if (!searchResults) {
+        req.flash('error', sms.messages.noUsersHave);
+        return res.redirect('search/search');
+      } else {
+        return res.render('search/search', { 'trainers': searchResults });
+      }
     })
     .catch(next);
 });

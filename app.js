@@ -10,6 +10,7 @@ const flash = require('connect-flash');
 const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+require('dotenv').config();
 const middlewares = require('./middlewares/middlewares');
 
 // Routers
@@ -18,12 +19,13 @@ const profileRouter = require('./routes/profile');
 const authRouter = require('./routes/auth');
 const tradesRouter = require('./routes/trades');
 const searchRouter = require('./routes/search');
+const apiRouter = require('./routes/api.js');
 
 // App
 const app = express();
 
 // Database connection
-mongoose.connect('mongodb://localhost/pokedex', {
+mongoose.connect(process.env.MONGODB_URI, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
@@ -75,6 +77,7 @@ app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/trades', tradesRouter);
 app.use('/search', searchRouter);
+app.use('/api/trades', apiRouter);
 
 // 404 Error Handler
 app.use((req, res, next) => {
