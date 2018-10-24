@@ -4,33 +4,36 @@
 const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
+const Pokemon = require('../models/pokemon');
 const middlewares = require('../middlewares/middlewares');
 const sms = require('../helpers/messages');
 
 // GET Search view
 router.get('/', middlewares.isLogged, function (req, res, next) {
   // Are there query parameters?
-  const pokemonName = req.query.pokemon;
-  if (!pokemonName) {
-    return res.render('search/search');
+  let pokemonName = req.query.pokemon;
+  if (pokemonName === undefined) {
+    return res.render('search/search', { 'trainers': [] });
   }
-  // If there are..
-  const userId = res.locals.currentUser._id;
-  Trainer.find({ '_id': { $ne: userId } })
-    .populate('my_pokemon')
-    .then(trainers => {
-      // Find which trainers have the pokemon
-      const searchResults = trainers.filter(trainer => {
-        const isMyPokemon = trainer.my_pokemon.some((elem) => {
-          return elem.name === pokemonName;
-        });
-        if (isMyPokemon) { return trainer; }
-      });
-      if (!searchResults) {
-        req.flash('error', sms.messages.noUsersHave);
-        return res.redirect('search/search');
+  // Is the search empty?
+  if (pokemonName === '') {
+    req.flash('error', sms.messages.emptyFieldsMessage);
+    return res.redirect('/search');
+  }
+  // If there are query parameters...
+  pokemonName = pokemonName.toLowerCase();
+  Pokemon.find({ 'name': pokemonName })
+    .then(result => {
+      if (!result.length) {
+        req.flash('error', sms.messages.pokemonNotFound);
+        return res.redirect('/search');
       } else {
-        return res.render('search/search', { 'trainers': searchResults });
+        const pokemonId = result[0]._id;
+        Trainer.find({ 'myPokemon': pokemonId })
+          .then(trainers => {
+            return res.render('search/search', { 'trainers': trainers, 'pokemonName': pokemonName });
+          })
+          .catch(next);
       }
     })
     .catch(next);

@@ -8,7 +8,8 @@ const Pokemon = require('../models/pokemon');
 
 // GET Add a pokemon in array
 router.get('/pokemon', middlewares.isLogged, function (req, res, next) {
-  const pokemonName = req.query.q;
+  let pokemonName = req.query.q;
+  pokemonName = pokemonName.toLowerCase();
   Pokemon.findOne({ 'name': pokemonName })
     .then((searchResult) => {
       res.status(200);

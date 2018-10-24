@@ -3,12 +3,12 @@
 </header>
 <section>
   <h2>My Pokemon</h2>
-  <a href="/trades/add/my_pokemon">Add</a>
+  <a href="/trades/add/myPokemon">Add</a>
   <ul>
-    <% trainer.my_pokemon.forEach( (pokemon, index) => { %>
+    <% trainer.myPokemon.forEach( (pokemon, index) => { %>
       <div>
         <li><%= pokemon.name %></li>
-        <form method="POST" action="/trades/<%= index %>/my_pokemon/delete">
+        <form method="POST" action="/trades/<%= index %>/myPokemon/delete">
           <input type="submit" value ="delete">
         </form>
         <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
@@ -18,12 +18,12 @@
 </section>
 <section>
 <h2>Wish List</h2>
-  <a href="/trades/add/wish_list">Add</a>
+  <a href="/trades/add/wishList">Add</a>
   <ul>
-    <% trainer.wish_list.forEach( (pokemon, index) => { %>
+    <% trainer.wishList.forEach( (pokemon, index) => { %>
     <div>
       <li><%= pokemon.name %></li>
-      <form method="POST" action="/trades/<%= index %>/wish_list/delete">
+      <form method="POST" action="/trades/<%= index %>/wishList/delete">
         <input type="submit" value ="delete">
       </form>
       <img src="<%= pokemon.image %>" alt="<%= pokemon.name %> image">
@@ -31,6 +31,4 @@
     <% }) %>
   </ul>
 </section>
-<footer>
-  <% include ../partials/navbar.ejs %>
-</footer>
+<% include ../partials/navbar.ejs %>

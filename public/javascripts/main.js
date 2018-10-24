@@ -18,7 +18,8 @@ const main = function () {
           const checkboxElement = document.createElement('input');
           const labelElement = document.createElement('label');
           const hiddenButton = document.getElementById('hidden-btn');
-          const name = data.data.name;
+          let name = data.data.name;
+          name = name.charAt(0).toUpperCase() + name.substr(1);
           const pokemonId = data.data._id;
           // Checkbox attributes
           checkboxElement.setAttribute('type', 'checkbox');

@@ -31,11 +31,11 @@ const trainerSchema = new Schema({
   location: {
     type: String
   },
-  my_pokemon: [{
+  myPokemon: [{
     type: ObjectId,
     ref: 'Pokemon'
   }],
-  wish_list: [{
+  wishList: [{
     type: ObjectId,
     ref: 'Pokemon'
   }]

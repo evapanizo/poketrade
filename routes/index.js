@@ -7,7 +7,7 @@ const middlewares = require('../middlewares/middlewares');
 
 // GET
 router.get('/', middlewares.isAnon, function (req, res, next) {
-  res.render('index');
+  return res.render('index');
 });
 
 // Exports
