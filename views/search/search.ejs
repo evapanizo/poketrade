@@ -1,10 +1,18 @@
-<h1>PokeSearch</h1>
-<p> Find out the trainers that have the Pokemon you are looking for!</p>
-<p> ¿Which Pokemon are you interested in?</p>
-<form action="/search" method="GET">
-<div>
-<label for="GET-pokemon"></label>
-<input id="GET-pokemon" type="text" name="q">
-<input type="submit" value="Search">
-</div>
-<% include ../partials/navbar.ejs %>
+<section>
+  <h1>PokeSearch</h1>
+  <p> Find out the trainers that have the Pokemon you are looking for!</p>
+</section>
+<section>
+  <p> ¿Which Pokemon are you interested in?</p>
+  <form action="/search" method="GET">
+    <input id="pokemon" type="text" name="pokemon">
+    <input type="submit" value="Search">
+  </form>
+  <% include ../partials/notifications.ejs %>
+</section>
+<section>
+  
+</section>
+<footer>
+  <% include ../partials/navbar.ejs %>
+</footer>
