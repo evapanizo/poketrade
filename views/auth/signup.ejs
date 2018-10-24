@@ -1,25 +1,27 @@
-<section class="signup">
-<div>
-  <img src="/images/SIGNUP.png" alt="signup" class="title">
+<section class="auth">
+  <article class="auth-title">
+    <img src="/images/SIGNUP.png" alt="signup" class="title">
+  </article>
+  <article class="auth-form">
     <form method="POST" action="/auth/signup">
       <div class="field" >
-        <h3>you need a trainer-name<br>in this poke-world</h3>
-          <label for = "username"></label>
-          <input type="text" name="username" placeholder="type username"/>
-        </div>
-        <div class="field" >
-        <h3>and a pokepass</h3>
-          <label for = "password"></label>
-          <input type="password" name="password" placeholder="type password"/>
+        <label for = "username">You need a trainer-name<br>in this poke-world...<br></label>
+        <input type="text" name="username" class="form-inputs" placeholder="Username"/>
       </div>
-      <div class="field-submit">
-        <input type="submit" value ="signup">
+      <div class="field" >
+        <label for = "password">...and a pokepass<br></label>
+        <input type="password" name="password" class="form-inputs" placeholder="Password"/>
+      </div>
+      <div class="field-submit-link">
+        <input type="submit" value ="Sign Up" class="auth-btn">
+        <a href="/" class="auth-link">Back</a>
       </div>
     </form>
+  </article>
+  <article class="auth-notification">
     <% include ../partials/notifications %>
-    <img src="/images/pokemons.png" alt="awesome picture of pokemons" class="pokemon">
-  </div>
+  </article>
+  <article class="sign-up-img">
+    <img src="/images/pokemons.png" alt="Awesome picture of pokemons" class="pokemon-img">
+  </article>
 </section>
-
-
-<% include ../partials/notifications %>
