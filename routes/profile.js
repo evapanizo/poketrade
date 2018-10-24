@@ -5,8 +5,6 @@ const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
-const helpers = require('../helpers/helpers');
-const vars = require('../helpers/constants');
 
 // GET Profile View
 router.get('/', middlewares.isLogged, (req, res, next) => {
@@ -14,15 +12,19 @@ router.get('/', middlewares.isLogged, (req, res, next) => {
   // Render user's profile
   Trainer.findById(userId)
     .then(trainer => {
-      // Assign default gender image
-      if (!trainer.gender) {
-        trainer.gender = helpers.getPathImages(vars.constants.defaultGenderImage);
-      }
-      // Assign default avatar
-      if (!trainer.avatar) {
-        trainer.avatar = helpers.getPathImages(vars.constants.defaultAvatar);
-      }
       res.render('profile/profile', { 'trainer': trainer });
+    })
+    .catch(next);
+});
+
+// GET Profile View - Other Users
+router.get('/:id/:name', middlewares.isLogged, (req, res, next) => {
+  const userId = req.params.id;
+  const pokemonName = req.params.name;
+  // Render user's profile
+  Trainer.findById(userId)
+    .then(trainer => {
+      res.render('profile/profile-others', { 'trainer': trainer, 'pokemonName': pokemonName });
     })
     .catch(next);
 });
