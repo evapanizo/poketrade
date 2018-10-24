@@ -1,21 +1,28 @@
-<h1>log in</h1>
+<section class="login">
+  <img src="/images/LOGIN.png" alt="login">
 <form method="POST" action="/auth/login">
-
   <div class="field" >
     <h3>pokemons are waiting for you,</h3>
     <label for = "username"></label>
-    <input type="text" name="username"/>
+    <input type="text" name="username" placeholder="type username"/>
   </div>
 
   <div class="field" >
     <h3>and your pokepass</h3>
     <label for = "pokepass"></label>
-    <input type="password" name="password"/>
+    <input type="password" name="password" placeholder="type pokepass"/>
   </div>
 
   <div class="field submit">
     <input type="submit" value ="login">
   </div>
 </form>
- 
+
+<div class="trainers">
+  <img src="/images/girl2.png" alt="trainer" class="girl"><img src="/images/boy.png" alt="trainer" class="boy">
+</div>
+  
 <% include ../partials/notifications %>
+</section>
+
+ 

@@ -10,17 +10,27 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   width: 100%;
   height: 100%;
+  font-family: Grobold;
+}
+
+img {
+  width: 100%;
 }
 
 /* ---- TYPOGRAPHY ---- */
 
+@font-face{
+  font-family: Grobold;
+  src: url(../fonts/GROBOLD.ttf);
+}
+
+
 body {
-  color: #111;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: rgb(31, 31, 31);
   font-size: 16px;
   line-height: 147%;
 }
@@ -52,8 +62,163 @@ p {
 }
 
 /* ---- HOMEPAGE ---- */
+
+.link-container {
+  margin-top: 250px;
+  text-align: center; 
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
 .home {
-  background-color: firebrick;
+  background-image: url("/images/flat4.png");
+  background-size: cover;
+}
+
+.poketrade {
+  height: 100%;
+  width: 100%;
+  padding-top: 50px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+a {
+  font-size: 1em;
+  letter-spacing: 0.2em;
+  text-shadow: 1px 1px 2px red;
+  background-color: red;
+  border: 1px solid red;
+  border-radius: 20px;
+  padding: 10px 40px;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  display: block;
+  margin: 10px;
+}
+
+
+/* ---- LOG IN ---- */
+
+.login {
+  background-color: #ED403A;
+  width: 100vw;
+  padding-top: 10px;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+}
+
+
+.login img {
+  height: 50%;
+  width: 50%;
+  margin-top: 20px;
+  position: inline-block;
+}
+
+.field {
+  margin-bottom: 25px;
+}
+
+.trainers .girl {
+  width: 184px;
+  margin-left: 2px;
+}
+
+/* ---- SIGN UP ---- */
+
+.signup {
+  background-color: #ED403A;
   height: 100vh;
   width: 100vw;
+  color: whitesmoke;
+  text-align: center;
+  padding-top: 3px;
+  font-size: 15px;
+}
+
+.signup img {
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+}
+
+
+.title {
+  width: 30%;
+  height: 30%;
+  padding: 10px;
+}
+
+
+/* ---- PROFILE ---- */
+.profile-options {
+  background-color: #ED403A;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 10px;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+}
+
+.profile img {
+  height: 10%;
+  width: 10%;
+}
+
+.profile {
+  display: block;
+  padding-left: 10px;
+}
+
+/* ---- EDIT PROFILE ---- */
+
+.edit {
+  background-color: #ED403A;
+  height: 100vh;
+  width: 100vw;
+  padding-top: 10px;
+  color: whitesmoke;
+  text-align: center;
+  font-size: 15px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.edit-title {
+  height: 20%;
+}
+
+.oak {
+  padding-top: 25px;
+  width: 100%;
+  height: 50%;
+}
+/* ---- ERROR MESSAGE ---- */
+
+.alert alert-danger {
+  color: whitesmoke;
+}
+
+/* ---- NAV-BAR ---- */
+
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 10px;
 }

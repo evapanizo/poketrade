@@ -1,7 +1,7 @@
 <section class="profile-options">
-  <a href="/profile/edit" class=>Edit</a>
-</section>
-<section class="profile">
+  <a href="/profile/edit" class="editpr">Edit</a>
+
+  <div class="profile">
   <h1><%= trainer.username %></h1>
   <img src="<%= trainer.avatar %>" alt="Profile picture">
   <img src="<%= trainer.gender %>" alt="Gender Logo">
@@ -9,6 +9,7 @@
   <p><%= trainer.description %></p>
   <img src="/images/telegram-logo.png" alt="Telegram Logo">
   <p><%= trainer.telegram %></p>
-</section>
+</div>
 <% include ../partials/navbar.ejs %>
+</section>
 
