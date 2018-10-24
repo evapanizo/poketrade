@@ -25,6 +25,7 @@ img {
 
 @font-face{
   font-family: Grobold;
+  font-weight: 300;
   src: url(../fonts/GROBOLD.ttf);
 }
 
@@ -86,13 +87,13 @@ p {
 a {
   font-size: 1em;
   letter-spacing: 0.2em;
-  text-shadow: 1px 1px 2px red;
-  background-color: red;
-  border: 1px solid red;
+  text-shadow: 1px 1px 2px rgb(200, 12, 6);
+  background-color: rgb(200, 12, 6);
+  border: 1px solid rgb(200, 12, 6);
   border-radius: 20px;
   padding: 10px 40px;
   text-decoration: none;
-  color: white;
+  color: whitesmoke;
   font-size: 20px;
   display: block;
   margin: 10px;
@@ -104,7 +105,7 @@ a {
 .login {
   background-color: #ED403A;
   width: 100vw;
-  padding-top: 10px;
+  padding-top: 5px;
   color: whitesmoke;
   text-align: center;
   font-size: 15px;
@@ -114,17 +115,16 @@ a {
 .login img {
   height: 50%;
   width: 50%;
-  margin-top: 20px;
+  margin-top: 10px;
   position: inline-block;
 }
 
 .field {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 
-.trainers .girl {
-  width: 184px;
-  margin-left: 2px;
+login .form {
+  padding: 5px;
 }
 
 /* ---- SIGN UP ---- */
@@ -135,7 +135,7 @@ a {
   width: 100vw;
   color: whitesmoke;
   text-align: center;
-  padding-top: 3px;
+  padding-top: 1px;
   font-size: 15px;
 }
 
@@ -149,11 +149,21 @@ a {
 .title {
   width: 30%;
   height: 30%;
-  padding: 10px;
+  padding: 1px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
+.trainer .girl {
+  margin-left: 2px;
+}
+
+.trainers {
+  margin: 0 auto;
+}
 
 /* ---- PROFILE ---- */
+
 .profile-options {
   background-color: #ED403A;
   height: 100vh;
@@ -199,8 +209,8 @@ a {
 }
 /* ---- ERROR MESSAGE ---- */
 
-.alert alert-danger {
-  color: whitesmoke;
+.alert-danger {
+  color: yellow;
 }
 
 /* ---- NAV-BAR ---- */
