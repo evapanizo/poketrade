@@ -9,7 +9,7 @@ const Trainer = require('../models/trainer');
 const helpers = require('../helpers/helpers');
 const ObjectId = mongoose.Types.ObjectId;
 
-// GET Trades View
+// GET Trades view
 router.get('/', middlewares.isLogged, function (req, res, next) {
   const userId = res.locals.currentUser._id;
   Trainer.findById(userId)

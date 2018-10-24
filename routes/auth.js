@@ -11,12 +11,12 @@ const sms = require('../helpers/messages');
 const vars = require('../helpers/constants');
 const helpers = require('../helpers/helpers');
 
-// get sign up view
+// GET Sign up view
 router.get('/signup', middlewares.isAnon, function (req, res, next) {
-  res.render('auth/signup');
+  return res.render('auth/signup');
 });
 
-// post sign up form
+// POST Sign up form
 router.post('/signup', middlewares.isAnon, middlewares.emptyFields, middlewares.isCreated, function (req, res, next) {
   const { username, password } = req.body;
   const salt = bcrypt.genSaltSync(saltRounds);
@@ -34,17 +34,17 @@ router.post('/signup', middlewares.isAnon, middlewares.emptyFields, middlewares.
   Trainer.create(trainer)
     .then(newUser => {
       req.session.currentUser = newUser;
-      res.redirect('/profile');
+      return res.redirect('/profile');
     })
     .catch(next);
 });
 
-// get login view
+// GET Log in view
 router.get('/login', middlewares.isAnon, function (req, res, next) {
-  res.render('auth/login');
+  return res.render('auth/login');
 });
 
-// post login view
+// POST Log in view
 router.post('/login', middlewares.isAnon, middlewares.emptyFields, function (req, res, next) {
   const { username, password } = req.body;
   Trainer.findOne({ username })
@@ -63,14 +63,13 @@ router.post('/login', middlewares.isAnon, middlewares.emptyFields, function (req
     });
 });
 
-// post logout
-// la asincronia se maneja con promises y callbacks como en este ejemplo con el condicional
+// POST Log out
 router.post('/logout', middlewares.isLogged, function (req, res, next) {
   req.session.destroy((err) => {
     if (err) {
       next(err);
     } else {
-      res.redirect('/');
+      return res.redirect('/');
     }
   });
 });

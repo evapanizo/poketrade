@@ -5,7 +5,7 @@ const express = require('express');
 const router = express.Router();
 const middlewares = require('../middlewares/middlewares');
 
-// GET
+// GET Homepage
 router.get('/', middlewares.isAnon, function (req, res, next) {
   return res.render('index');
 });
