@@ -22,31 +22,24 @@ router.get('/', middlewares.isLogged, function (req, res, next) {
     .catch(next);
 });
 
-// GET Add a pokemon in an array
-router.get('/add/:array', middlewares.isLogged, function (req, res, next) {
-  const pokemonArray = req.params.array;
-  if (pokemonArray === 'myPokemon') {
-    return res.render('trades/add-my-pokemon');
-  } else if (pokemonArray === 'wishList') {
-    return res.render('trades/add-wish-list');
-  }
+// GET Add a pokemon in myPokemon array
+router.get('/add/myPokemon', middlewares.isLogged, function (req, res, next) {
+  return res.render('trades/add-my-pokemon');
 });
 
-// /add/pokemons?add=wishList
+// GET Add a pokemon in wishList array
+router.get('/add/wishList', middlewares.isLogged, function (req, res, next) {
+  return res.render('trades/add-wish-list');
+});
 
-// POST Add a pokemon in an array
-router.post('/add/:array', middlewares.isLogged, function (req, res, next) {
+// POST Add a pokemon in myPokemon array
+router.post('/add/myPokemon', middlewares.isLogged, function (req, res, next) {
   const pokemonList = req.body;
   const userId = res.locals.currentUser._id;
-  const pokemonArray = req.params.array;
   Trainer.findById(userId)
     .then(trainer => {
       for (let key in pokemonList) {
-        if (pokemonArray === 'myPokemon') {
-          trainer.myPokemon.push(ObjectId(pokemonList[key]));
-        } else if (pokemonArray === 'wishList') {
-          trainer.wishList.push(ObjectId(pokemonList[key]));
-        }
+        trainer.myPokemon.push(ObjectId(pokemonList[key]));
       }
       trainer.save();
       return res.redirect('/trades');
@@ -54,19 +47,43 @@ router.post('/add/:array', middlewares.isLogged, function (req, res, next) {
     .catch(next);
 });
 
-// POST Delete a pokemon in array
-router.post('/:index/:array/delete', middlewares.isLogged, function (req, res, next) {
+// POST Add a pokemon in wishList array
+router.post('/add/wishList', middlewares.isLogged, function (req, res, next) {
+  const pokemonList = req.body;
+  const userId = res.locals.currentUser._id;
+  Trainer.findById(userId)
+    .then(trainer => {
+      for (let key in pokemonList) {
+        trainer.wishList.push(ObjectId(pokemonList[key]));
+      }
+      trainer.save();
+      return res.redirect('/trades');
+    })
+    .catch(next);
+});
+
+// POST Delete a pokemon in myPokemon array
+router.post('/:index/myPokemon/delete', middlewares.isLogged, function (req, res, next) {
   const userId = res.locals.currentUser._id;
   const index = req.params.index;
-  const pokemonArray = req.params.array;
   Trainer.findById(userId)
-    .populate(pokemonArray)
+    .populate('myPokemon')
     .then(trainer => {
-      if (pokemonArray === 'myPokemon') {
-        trainer.myPokemon.splice(index, 1);
-      } else if (pokemonArray === 'wishList') {
-        trainer.wishList.splice(index, 1);
-      }
+      trainer.myPokemon.splice(index, 1);
+      trainer.save();
+      return res.redirect('/trades');
+    })
+    .catch(next);
+});
+
+// POST Delete a pokemon in wishList array
+router.post('/:index/wishList/delete', middlewares.isLogged, function (req, res, next) {
+  const userId = res.locals.currentUser._id;
+  const index = req.params.index;
+  Trainer.findById(userId)
+    .populate('wishList')
+    .then(trainer => {
+      trainer.wishList.splice(index, 1);
       trainer.save();
       return res.redirect('/trades');
     })

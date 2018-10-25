@@ -37,6 +37,7 @@ router.get('/', middlewares.isLogged, function (req, res, next) {
               req.flash('error', sms.messages.noPokemon);
               return res.redirect('/search');
             } else {
+              req.session.currentUrl = `/search?pokemon=${pokemonName}`;
               return res.render('search/search', { 'trainers': trainers, 'pokemonName': pokemonName });
             }
           })

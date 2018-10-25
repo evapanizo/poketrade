@@ -5,6 +5,7 @@ const express = require('express');
 const router = express.Router();
 const Trainer = require('../models/trainer');
 const middlewares = require('../middlewares/middlewares');
+const mongodb = require('mongodb');
 
 // GET Profile view
 router.get('/', middlewares.isLogged, (req, res, next) => {
@@ -13,22 +14,6 @@ router.get('/', middlewares.isLogged, (req, res, next) => {
   Trainer.findById(userId)
     .then(trainer => {
       return res.render('profile/profile', { 'trainer': trainer });
-    })
-    .catch(next);
-});
-
-// GET Profile view - Other users
-router.get('/:id/:name', middlewares.isLogged, (req, res, next) => {
-  const userId = req.params.id;
-  const pokemonName = req.params.name;
-  // Render user's profile
-  Trainer.findById(userId)
-    .then(trainer => {
-      if (trainer) {
-        return res.render('profile/profile-others', { 'trainer': trainer, 'pokemonName': pokemonName });
-      } else {
-        next();
-      }
     })
     .catch(next);
 });
@@ -56,6 +41,26 @@ router.get('/edit', middlewares.isLogged, (req, res, next) => {
     .then(trainer => {
       trainer.telegram = trainer.telegram.substring(1);
       return res.render('profile/edit', { 'trainer': trainer });
+    })
+    .catch(next);
+});
+
+// GET Profile view - Other users
+router.get('/:id', middlewares.isLogged, (req, res, next) => {
+  const userId = req.params.id;
+  if (!mongodb.ObjectID.isValid(userId)) {
+    next();
+  }
+  const pokemonName = req.params.name;
+  // Render user's profile
+  Trainer.findById(userId)
+    .then(trainer => {
+      if (trainer) {
+        const url = req.session.currentUrl;
+        return res.render('profile/profile-others', { 'trainer': trainer, 'pokemonName': pokemonName, 'url': url });
+      } else {
+        next();
+      }
     })
     .catch(next);
 });

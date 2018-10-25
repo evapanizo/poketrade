@@ -13,7 +13,7 @@
   </section>
   <section>
     <% trainers.forEach( trainer => { %>
-      <a href="/profile/<%= trainer._id %>/<%= pokemonName %>" class="user-link">
+      <a href="/profile/<%= trainer._id %>" class="user-link">
         <div class="search-profile-container">
           <div class="img-search-container">
             <img src="<%= trainer.avatar %>" alt="<%= trainer.name %>'s avatar" class="profile-img-search">
