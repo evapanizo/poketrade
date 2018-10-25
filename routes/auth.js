@@ -26,10 +26,10 @@ router.post('/signup', middlewares.isAnon, middlewares.emptyFields, middlewares.
     'password': hashedPassword,
     'avatar': helpers.getPathImages(vars.constants.defaultAvatar),
     'gender': helpers.getPathImages(vars.constants.defaultGenderImage),
-    'age': 0,
-    'location': 'N/A',
-    'description': 'N/A',
-    'telegram': 'N/A'
+    'age': 10,
+    'location': 'Pallet Town',
+    'description': "I wanna be the very best, like no one ever was. To catch them is my real test, to train them is my cause. I will travel across the land, searching far and wide. Teach Pokemon to understand the power that's inside!",
+    'telegram': '@Not Available'
   };
   Trainer.create(trainer)
     .then(newUser => {

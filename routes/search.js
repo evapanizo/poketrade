@@ -25,13 +25,19 @@ router.get('/', middlewares.isLogged, function (req, res, next) {
   Pokemon.find({ 'name': pokemonName })
     .then(result => {
       if (!result.length) {
-        req.flash('error', sms.messages.pokemonNotFound);
+        req.flash('error', sms.messages.pokemonDoesntExist);
         return res.redirect('/search');
       } else {
         const pokemonId = result[0]._id;
         Trainer.find({ 'myPokemon': pokemonId })
           .then(trainers => {
-            return res.render('search/search', { 'trainers': trainers, 'pokemonName': pokemonName });
+            // If nobody has the pokemon
+            if (!trainers.length) {
+              req.flash('error', sms.messages.noPokemon);
+              return res.redirect('/search');
+            } else {
+              return res.render('search/search', { 'trainers': trainers, 'pokemonName': pokemonName });
+            }
           })
           .catch(next);
       }

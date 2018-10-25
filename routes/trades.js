@@ -32,6 +32,8 @@ router.get('/add/:array', middlewares.isLogged, function (req, res, next) {
   }
 });
 
+// /add/pokemons?add=wishList
+
 // POST Add a pokemon in an array
 router.post('/add/:array', middlewares.isLogged, function (req, res, next) {
   const pokemonList = req.body;

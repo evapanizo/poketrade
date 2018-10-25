@@ -24,7 +24,11 @@ router.get('/:id/:name', middlewares.isLogged, (req, res, next) => {
   // Render user's profile
   Trainer.findById(userId)
     .then(trainer => {
-      return res.render('profile/profile-others', { 'trainer': trainer, 'pokemonName': pokemonName });
+      if (trainer) {
+        return res.render('profile/profile-others', { 'trainer': trainer, 'pokemonName': pokemonName });
+      } else {
+        next();
+      }
     })
     .catch(next);
 });
@@ -36,6 +40,7 @@ router.post('/', middlewares.isLogged, (req, res, next) => {
   if (trainer.avatar === '') {
     delete trainer.avatar;
   }
+  trainer.telegram = `@${trainer.telegram}`;
   Trainer.findByIdAndUpdate(userId, trainer)
     .then(() => {
       return res.redirect('/profile');
@@ -49,6 +54,7 @@ router.get('/edit', middlewares.isLogged, (req, res, next) => {
   // Render edit form
   Trainer.findById(userId)
     .then(trainer => {
+      trainer.telegram = trainer.telegram.substring(1);
       return res.render('profile/edit', { 'trainer': trainer });
     })
     .catch(next);
