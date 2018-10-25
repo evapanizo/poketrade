@@ -154,7 +154,7 @@ body {
   font-size: 0.8em;
 }
 
-.form-inputs {
+.form-inputs, .search-input {
   border-radius: 15px;
   padding: 2% 4%;
   font-family: Grobold;
@@ -224,7 +224,7 @@ body {
 /* ---- ERROR MESSAGE ---- */
 
 .alert-danger {
-  color: yellow;
+  color: #FECC2F;
 }
 
 /* ---- NAV-BAR ---- */
@@ -247,6 +247,130 @@ body {
   font-size: 10px;
 }
 
+
+/* ---- TRADES ---- */
+
 .hidden {
   display: none;
+}
+
+#trades-title {
+  width: 50%;
+  vertical-align: middle;
+}
+
+#trades-title-icon {
+  width: 15%;
+  vertical-align: middle;
+}
+
+#trades-header {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.page-container {
+  background-color: #ED403A;
+  color: whitesmoke;
+  padding-bottom: 50px;
+  min-height: 100vh;
+}
+
+.pkmn-img {
+  width: 50%;
+}
+
+.trash-icon {
+  width: 10%;
+}
+
+.add-btn {
+  width: 5%;
+  vertical-align: middle;
+}
+
+.list-title {
+  font-size: 1.4em;
+  padding: 30px 0px 0px 20px;
+}
+
+.ul-pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px 20px 0px 20px;
+  padding: 0px 0px 20px 0px;
+}
+
+.pkmn-container {
+  width: 45%;
+  margin-top: 5%;
+  text-align: center;
+  border: 1px solid whitesmoke;
+  background-color: #eb706c;
+  border-radius: 20px;
+}
+
+.pkmn-container:hover {
+  background-color: #6C94EB;
+}
+
+.pkmn-li {
+  list-style-type: none;
+  display: inline;
+}
+
+.delete-form {
+  display: inline;
+}
+
+/* ---- ADD TRADE TITLE ---- */
+.add-trade-title {
+  text-align: center;
+  margin: 0%;
+  padding: 10% 5%;
+  line-height: 50px;
+}
+
+.add-pokemon-container{
+  background-color:#ED403A;
+  color: whitesmoke;
+  min-height: 100vh;
+}
+
+.search-pokemon{
+  text-align: center;
+}
+
+.add-trades-link {
+  color: #386CBA;
+  background-color: #FECC2F;
+  border-radius: 15px;
+  text-decoration: none;
+  border: 2px solid #386CBA;
+  padding: 2px 28px;
+  margin-top: 10px;
+}
+
+#error-message {
+  padding-top: 10px;
+}
+
+.pokemon-box{
+  margin-top: 20px;
+  padding-bottom: 100px;
+}
+
+#checkbox-form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.checkbox-tick, .checkbox-label {
+  display: inline;
+}
+
+#hidden-btn {
+  width: 30%;
 }

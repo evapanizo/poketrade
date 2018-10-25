@@ -18,20 +18,26 @@ const main = function () {
           const checkboxElement = document.createElement('input');
           const labelElement = document.createElement('label');
           const hiddenButton = document.getElementById('hidden-btn');
+          const containerElement = document.createElement('div');
           let name = data.data.name;
           name = name.charAt(0).toUpperCase() + name.substr(1);
           const pokemonId = data.data._id;
-          // Checkbox attributes
+          // Checkbox
           checkboxElement.setAttribute('type', 'checkbox');
           checkboxElement.setAttribute('checked', true);
           checkboxElement.setAttribute('value', pokemonId);
           checkboxElement.setAttribute('name', id);
+          checkboxElement.classList.add('checkbox-tick');
           id++;
-          // Label attributes
+          // Label
           labelElement.innerText = name;
+          labelElement.classList.add('checkbox-label');
+          // Container
+          containerElement.classList.add('checkbox-elems');
           // Append elements
-          formElement.insertBefore(checkboxElement, hiddenButton);
-          formElement.insertBefore(labelElement, hiddenButton);
+          containerElement.appendChild(checkboxElement);
+          containerElement.appendChild(labelElement);
+          formElement.insertBefore(containerElement, hiddenButton);
           // First Event
           if (firstEvent) {
             hiddenButton.classList.remove('hidden');
