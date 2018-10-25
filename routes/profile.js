@@ -33,6 +33,9 @@ router.get('/:id/:name', middlewares.isLogged, (req, res, next) => {
 router.post('/', middlewares.isLogged, (req, res, next) => {
   const userId = res.locals.currentUser._id;
   const trainer = req.body;
+  if (trainer.avatar === '') {
+    delete trainer.avatar;
+  }
   Trainer.findByIdAndUpdate(userId, trainer)
     .then(() => {
       return res.redirect('/profile');

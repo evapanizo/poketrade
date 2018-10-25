@@ -1,10 +1,10 @@
-<section class="auth">
+<main class="auth">
   <header class="auth-title">
     <img src="/images/LOGIN.png" class="title" alt="login">
   </header>
-  <article class="auth-form">
+  <section class="auth-form">
     <form method="POST" action="/auth/login">
-      <div class="field" >
+      <div class="field">
         <label for = "username">Pokemons are waiting for you!<br>Enter the Pokemon world!<br></label>
         <input type="text" name="username" placeholder="Username" class="form-inputs" maxlength="15"/>
       </div>
@@ -17,14 +17,14 @@
         <a href="/" class="auth-link">Back</a>
       </div>
     </form>
-  </article>
-  <article class="auth-notification">
+  </section>
+  <section class="auth-notification">
     <% include ../partials/notifications %>
-  </article>
-  <article class="log-in-img">
+  </section>
+  <section class="log-in-img">
     <img src="/images/finalgirl.png" alt="Trainer girl" class="trainer-girl">
     <img src="/images/finalboy.png" alt="Trainer boy" class="trainer-boy">
-  </article>
-</section>
+  </section>
+</main>
 
  

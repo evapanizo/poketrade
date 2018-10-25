@@ -258,25 +258,16 @@ body {
 
 .edit {
   background-color: #ED403A;
-  height: 100vh;
-  width: 100vw;
   padding-top: 10px;
   color: whitesmoke;
   text-align: center;
-  font-size: 15px;
-  padding-left: 25px;
-  padding-right: 25px;
+  min-height: 100vh;
 }
 
-.edit-title {
-  height: 20%;
+.edit-link {
+  padding: 9px 18px;
 }
 
-.oak {
-  padding-top: 25px;
-  width: 100%;
-  height: 50%;
-}
 /* ---- ERROR MESSAGE ---- */
 
 .alert-danger {
@@ -438,3 +429,51 @@ body {
 #hidden-btn {
   width: 30%;
 }
+
+/* ---- SEARCH ---- */
+.search-intro {
+  text-align: center;
+  margin: 0 10px;
+}
+
+.searcher {
+  text-align: center;
+  margin: 30px 10px;
+}
+
+.search-form {
+  margin: 15px 0px;
+}
+
+.profile-img-search {
+  width: 60%;
+  border-radius: 150px;
+  border: 4px solid #386CBA;
+  vertical-align: middle;
+  margin: 10px 0px;
+}
+
+.search-profile-container {
+  width: 90%;
+  margin: 20px auto;
+  border: 2px solid whitesmoke;
+  background-color: #EB706C;
+  border-radius: 15px;
+  display: flex;
+}
+
+.info-search-container, .img-search-container {
+  width: 50%;
+  text-align: center;
+}
+
+.info-search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+} 
+
+.user-link {
+  text-decoration: none;
+  color: whitesmoke;
+} 
