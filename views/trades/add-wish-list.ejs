@@ -1,12 +1,20 @@
-<section id="search-pokemon">
-  <h1>¿Which Pokemon do you want?</h1>
-  <input id="pokemon" type="text" name="pokemon">
-  <button>Search</button>
-  <p id="error-message"></p>
-</section>
-<form method="POST" action="/trades/add/wishList" id="checkbox-form">
-  <input type="submit" id="hidden-btn" class="hidden" value ="Add all">
-</form>
+<main class="add-pokemon-container">
+  <header id="search-pokemon">
+    <h1 class="add-trade-title">Which Pokemon do you want?</h1>
+  </header>
+  <section class="search-pokemon">
+    <input class="search-input" type="text" name="pokemon" placeholder="Find a Pokemon"><br>
+    <button class="add-trades-link">Find</button>
+    <p id="error-message" class="alert-danger"></p>
+  </section>
+  <section class="pokemon-box">
+    <form method="POST" action="/trades/add/wishList" id="checkbox-form">
+      <input type="submit" id="hidden-btn" class="hidden add-trades-link" value ="Add all">
+    </form>
+  </section>
+  <% include ../partials/navbar.ejs %>
+</main>
 <script src="/javascripts/axios.js"></script>
 <script src="/javascripts/main.js"></script>
-<% include ../partials/navbar.ejs %>
+</main>
+

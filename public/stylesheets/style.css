@@ -178,28 +178,17 @@ body {
 
 /* ---- PROFILE ---- */
 
-.profile-options {
-  background-image: url("/images/trainer-card.png");
-  background-size: cover;
-}
-
-/*.profile-options {
+.profile-container {
   background-color: #ED403A;
-  height: 100vh;
-  width: 100vw;
-  padding-top: 30px;
   color: whitesmoke;
-  text-align: center;
-  font-size: 15px;
-}*/
-
-.profile img {
-  height: 10%;
-  width: 10%;
-  padding-top: 120px 0 0 50px;
-
+  padding-bottom: 100px;
+  min-height: 100vh;
 }
 
+.profile-options {
+  padding: 30px 0px 0px 0px;;
+  text-align: center;
+}
 
 .editpr {
   color: #386CBA;
@@ -211,14 +200,60 @@ body {
   margin-top: 30px;
 }
 
-.profile {
-  text-align: left;
-  padding-left: 10px;
+.trainer-profile {
+  text-align: center;
 }
 
-.profile-options .a {
-  padding-top: 30px;
+.profile-title h1 {
+  font-size: 2em;
+  letter-spacing: 5px;
 }
+
+.other-trainer-profile {
+  text-align: center;
+}
+
+.other-trainer-profile h1{
+  margin: 0;
+  padding: 40px 0;
+}
+
+.avatar {
+  width: 70%;
+  border-radius: 150px;
+  border: 4px solid #386CBA;
+}
+
+.trainer-info, .trainer-description, .telegram-info {
+  margin-top: 20px;
+}
+
+.trainer-description {
+  padding: 0 40px;
+  text-align: center;
+}
+
+.telegram-icon {
+  width: 5%;
+}
+
+.telegram-text {
+  display: inline;
+}
+
+.trainer-age-location {
+  display: inline;
+}
+
+.gender-img {
+  width: 8%;
+  padding-right: 10px;
+}
+
+.nav-options {
+  padding-top: 20px;
+}
+
 /* ---- EDIT PROFILE ---- */
 
 .edit {
@@ -251,24 +286,32 @@ body {
 /* ---- NAV-BAR ---- */
 
 .navbar {
-  background-color: #333;
-  overflow: hidden;
+  background-color: #FECC2F;
+  border: 5px solid #386CBA;
+  border-radius: 5px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.navbar-img {
+  width: 55%;
+}
+
+.navbar form {
+  width: 22%;
+  text-align: center;
 }
 
 .navbar a {
-  float: left;
   display: block;
-  color: #f2f2f2;
+  width: 25%;
   text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 10px;
 }
-
-
 /* ---- TRADES ---- */
 
 .hidden {
@@ -293,7 +336,7 @@ body {
 .page-container {
   background-color: #ED403A;
   color: whitesmoke;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
   min-height: 100vh;
 }
 
@@ -328,7 +371,7 @@ body {
   margin-top: 5%;
   text-align: center;
   border: 1px solid whitesmoke;
-  background-color: #eb706c;
+  background-color: #EB706C;
   border-radius: 20px;
 }
 
