@@ -179,25 +179,46 @@ body {
 /* ---- PROFILE ---- */
 
 .profile-options {
+  background-image: url("/images/trainer-card.png");
+  background-size: cover;
+}
+
+/*.profile-options {
   background-color: #ED403A;
   height: 100vh;
   width: 100vw;
-  padding-top: 10px;
+  padding-top: 30px;
   color: whitesmoke;
   text-align: center;
   font-size: 15px;
-}
+}*/
 
 .profile img {
   height: 10%;
   width: 10%;
+  padding-top: 120px 0 0 50px;
+
+}
+
+
+.editpr {
+  color: #386CBA;
+  background-color: #FECC2F;
+  border-radius: 15px;
+  text-decoration: none;
+  border: 2px solid #386CBA;
+  padding: 9px 27px;
+  margin-top: 30px;
 }
 
 .profile {
-  display: block;
+  text-align: left;
   padding-left: 10px;
 }
 
+.profile-options .a {
+  padding-top: 30px;
+}
 /* ---- EDIT PROFILE ---- */
 
 .edit {
