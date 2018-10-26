@@ -7,10 +7,7 @@ const checkSearchMain = function () {
     axios.get(`/api/search-pokemon?q=${pokemonName.value}`)
       .then(({ data }) => {
         const divElement = document.getElementById('search-options');
-        const messageElement = document.getElementById('error-message');
         divElement.innerHTML = '';
-        messageElement.innerText = '';
-
         if (data.data.length) {
           divElement.classList.add('search-options');
           const ulElement = document.createElement('ul');
