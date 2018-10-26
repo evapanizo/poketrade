@@ -77,7 +77,7 @@ app.use('/auth', authRouter);
 app.use('/profile', profileRouter);
 app.use('/trades', tradesRouter);
 app.use('/search', searchRouter);
-app.use('/api/trades', apiRouter);
+app.use('/api', apiRouter);
 
 // 404 Error Handler
 app.use((req, res, next) => {

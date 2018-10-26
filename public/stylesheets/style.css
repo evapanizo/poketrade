@@ -477,3 +477,19 @@ body {
   text-decoration: none;
   color: whitesmoke;
 } 
+
+#search-options li {
+  list-style: none;
+}
+
+#search-options ul {
+  padding: 0;
+}
+
+.search-options {
+  margin: 10px auto;
+  border-radius: 15px;
+  border: 2px solid whitesmoke;
+  background-color: #EB706C; 
+  width: 40%;
+}

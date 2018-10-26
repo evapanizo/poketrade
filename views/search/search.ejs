@@ -7,6 +7,7 @@
     <p> Which Pokemon are you interested in?</p>
     <form action="/search" method="GET" class="search-form">
       <input id="pokemon-search" type="text" class="form-inputs" name="pokemon" placeholder="Enter a Pokemon"><br>
+      <div id="search-options"></div>
       <input type="submit" value="Search" class="auth-btn">
     </form>
     <% include ../partials/notifications %>
@@ -28,5 +29,7 @@
     <% }) %>
   </section>
   <% include ../partials/navbar.ejs %>
+  <script src="/javascripts/axios.js"></script>
+  <script src="/javascripts/check-search.js"></script>
 </main>
 
