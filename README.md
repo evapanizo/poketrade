@@ -43,26 +43,25 @@ PokeTrade also includes a search engine, where you check which trainers have the
 | `get` | `/auth/login` | Renders the login form. If user has logged in, redirects to /profile. |
 | `post` | `/auth/login` | If user has logged in correctly, redirects to /profile. Else, redirects to /login.  |
 | `post` | `/auth/logout` | Redirects to /. |
-| `get` | `/trades` | Renders the trade list page (protected). |
-| `post` | `/trades/:id_pkmn/my_pokemon/delete` | Redirects to trade list page (protected). |
-| `post` | `/trades/:id_pkmn/wish_list/delete` | Redirects to trade list page (protected). |
-| `get` | `/pokesearch?q=` | Renders the search engine page (protected).|
 | `get` | `/profile` | Renders the profile page (protected). |
+| `post` | `/profile` | Updates profile and redirects to profile page (protected). |
 | `get` | `/profile/edit` | Renders the edit profile page (protected). |
-| `post` | `/profile/edit` | Redirects to profile page (protected). |
-
-### Pending
-| Method | Route | Description |
-|--------|-------|-------------|
-| `get` | `/trades/add/my_pokemon` | Renders the add pokemon form to *My Pokemon* list(protected). |
-| `get` | `/trades/add/wish_list` | Renders the add pokemon form to *Wish List*(protected). |
-| `post` | `/trades/add/my_pokemon` | Welcome to the wonderful world of APIs |
-| `post` | `/trades/add/wish_list` | Welcome to the wonderful world of APIs |
+| `get` | `/profile/:id` | Renders the profile page if user with the id in the URL (protected). |
+| `get` | `/trades` | Renders the trade list page (protected). |
+| `get` | `/trades/add/myPokemon` | Renders the add Pokemon form to *My Pokemon* list(protected). |
+| `get` | `/trades/add/wishList` | Renders the add Pokemon form to *Wish List* (protected). |
+| `get` | `/pokesearch?q=` | Renders the search engine page and renders search results if a query is requested (protected).|
+| `post` | `/trades/add/myPokemon` | Adds Pokemon to *My Pokemon* list and redirects to /trades (protected). |
+| `post` | `/trades/add/wishList` | Adds Pokemon to *Wish List* and redirects to /trades (protected). |
+| `post` | `/trades/:index/myPokemon/delete'` | Deletes a Pokemon from *My Pokemon* list and redirects to /trades (protected). |
+| `post` | `/trades/:index/wishList/delete'` | Deletes a Pokemon from *Wish List* and redirects to /trades (protected). |
+| `get` | `/api/trades/pokemon` | Finds if a given Pokemon is in the database and returns the json with the corresponding data (protected).|
+| `get` | `/search-pokemon` | Finds which Pokemon include a given string in their names and returns the json with the corresponding data (protected).|
 
 ### Backlog
 | Method | Route | Description |
 |--------|-------|-------------|
-| `get` | `/pokemon/:pokemon` | Renders the pokemon details page (protected).|
+| `get` | `/pokemon/:pokemon` | Renders the Pokemon details page (protected).|
 
 ## Models
 
@@ -80,6 +79,7 @@ wish_list: Array of Pokemon IDs
 Avatar: String // URL
 Telegram: String
 Gender: String
+Age: Number
 Description: String
 Location: String
 ```
